@@ -8,7 +8,5 @@
   "id-unique": true,
   "src-not-empty": true,
   "attr-no-duplication": true,
-  "title-require": true,
-  "alt-require": true,
-  "doctype-html5": true
+  "title-require": true
 }
