@@ -37,38 +37,8 @@ body {
 .main {
   background:lightgreen;
   height: 50vh; 
-  display: flow-root; /*  
-    - float의 부모에다가 줘야함, 익스플로러, 레거시 환경은 지원불가 
-    - 전통방법아님. 모던 방식
-    - 이 경우, relative를 써서, 레이아웃을 벗어나더라도 벗어난 영역을 확인 가능
-  */
-  /* overflow: hidden;  
-    - 마찬가지로 float의 부모에 쓴다. 가장 많이 쓰는 방법 
-    - IE6에서 작동되지 않았음
-    - 현재도 협업에서 많이 사용 but, overflow는 잠재적인 위험 존재
-      -> position: static이 기본값인데, position: relative로 설정하는 순간
-         움직일수가 있게 됨. 
-      -> .group1에다가 'position: relative; left: -100px;'하는 순간, 제자리에서 왼쪽으로 이동
-         근데 이동했는데, group1의 부모인 main이 overflow로 되어있으니, 레이아웃에서 벗어난 영역이 hidden됨
-    - overflow: auto 는 넘치는 영역에 대한 걸 스크롤바로 알려줌
-    - 즉, overflow를 쓰기 위해서는 
-         1) 부모의 width, height값을 알아야 함
-         2) 내부의 자식요소의 컨텐츠 길이를 알아야 자를건지, 스크롤바를 제공할지 알아야 함
-         -> 결국, overflow라는 속성을 주는 순간, 독립적인 블록 formating contexting 영역으로 인식됨
-    - 그래서, group들의 부모에 overflow:hidden속성을 줘서, 자식들(group)에 대한 잃어버린 높이 속성을
-      다시 읽어들이게 해서, 높이를 유지하게 하는거야
-  */ 
-  /* zoom: 1;  
-    - IE6의 경우, overflow를 사용할 때 필요
-    - 숫자1의 100%라는 의미. 원본 크기를 확인하는거임 in IE6
-    - 그러나, IE는 이제 죽어서, 이제 ZOOM안써도 됨 
-  */
-  padding: 0 15px;
-}
-
-.group {
-  margin: 0 15px;
-  float: left;
+  display: flex;
+  flex-direction:row;
 }
 
 .group1 {
