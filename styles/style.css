@@ -7,8 +7,15 @@
   /* 등장하는 모든 요소들의 box-sizing방식을 통일하겠다!! */
 }
 
+/* 링크 스타일 */
+a {
+  color: inherit; /*body의 #212121를 상속받음*/
+  text-decoration: none;
+}
+
 /* 본문 스타일 */
 body {
+  color: #212121; /* 세련되어 보이는 검정색 */
   background:#ccc; /* 배경색 '연노랑 -> #ccc밝은 회색'으로 바꾸기 */
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; 
 }
@@ -40,7 +47,24 @@ body {
 
 /* 텍스트 링크 모음 */
 .member {
-  background-color: aqua;
+  /* background-color: aqua; */
+  text-align: right;
+  padding: 4px 0;
+}
+
+.member li {   /* .member속 li에게 적용 */
+  /* background-color: pink; */
+  display:inline-block; /*너는 원래 block이지만 inline으로 바꿀거야!*/
+}
+
+.member a {  /* .member li a 랑 같지만, 음.. 굳이 너무 유지보수 힘듬 */
+  background-color: coral;
+  padding: 6px 10px;
+  display:inherit; /*li의 inline-block속성을 물려받음. padding때매*/
+}
+
+.divider {
+  margin-right: 4px;
 }
 
 /* 비주얼 */
