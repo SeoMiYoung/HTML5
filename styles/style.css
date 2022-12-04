@@ -35,43 +35,32 @@ body {
 
 /* 메인 */
 .main {
-  background:lightgreen;
-  height: 50vh; 
+  background:lightgreen; 
   display: flex;
-  flex-direction:row;
+  flex-flow: row nowrap; 
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 30px 30px;
 }
 
 .group1 {
-  background: violet; /*마찬가지로 영역 구분을 위해 임의로 색 지정*/
+  background: violet; 
   width: 250px;
-  /* position: relative; 
-    - relative의 경우, 현재 자신의 위치를 기준으로 움직임 
-    left: -100px;
-  */
-
 }
 
 .group2 {
-  background: salmon;  /*마찬가지로 영역 구분을 위해 임의로 색 지정*/
+  background: salmon; 
   width: 380px;
 }
 
 .group3 {
-  background: gold;  /*마찬가지로 영역 구분을 위해 임의로 색 지정*/
+  background: gold;  
   width: 190px;
 }
 
 /* clear속성을 동작시키기 위해, 가짜 요소를 항상 float 마지막에 삽입 */
 .clearfix {
-  clear: both/*
-    - float를 해제하는 속성
-    - clear: left -> float left해제
-    - clear: right
-    - clear: both -> 양쪽 해제
-    -> 갑자기 float요소의 높이 만큼을 읽어들여요
-    - but, clear속성은 블록성격요소에만 적용가능이다, inline성격은 적용이 안된다
-      -> 그러면 적용하고 싶으면 블록요소로 바꿔야겠네
-  */
+  clear: both
 }
 
 /*
