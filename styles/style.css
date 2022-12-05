@@ -1,92 +1,97 @@
-@import url(./normalize.css); /*반드시 첫줄, 또한 RESET보다 먼저 */
-@import url(./reset.css); 
+@import url(./normalize.css);
+@import url(./reset.css);
 
 /* 기본 스타일 */
-*, *::before, *::after {
-  box-sizing: border-box; /*모든 요소를 border-box로 할건지 통일하는게 좋음*/
-  /* 등장하는 모든 요소들의 box-sizing방식을 통일하겠다!! */
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 /* 본문 스타일 */
 body {
-  background:#ffc;
+  background: #ffc;
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-  font-weight: 400;  
 }
 
 /* 레이아웃 */
-.header, .visual, .main, .slogan, .footer-inner {
+.header, .visual, .main, .slogan, .footer-inner{
   width: 940px;
   margin: 0 auto;
-  
 }
+
 /* 헤더 */
-.header {
-  background:pink;
-  height: 15vh;  /*브라우저의 비율에 따라 15%*/
-  padding: 0 30px;   /* header에서만 padding을 사용할거야 */
+.header{
+  background: #fff;
+  padding: 0 30px;
+  height: 15vh;
+  border-radius: 0 0 15px 15px;
+}
+
+.member {
+  background-color: pink;
+  display: flex;
+  flex-flow: row nowrap; /* flex-direction방향, 줄바꿈 허용안함 */
+  justify-content: flex-end;  /*우측*/
+}
+
+.member li::before {
+  content: ":";  /*모든 <li>의 첫번째 가상요소에 빈문자 */
+}
+
+.member .first::before {   /* 10점(.member) + 10점(.first) + 1점(::before) */
+  content: "";    /*첫번째<li>의 가상요소에 빈문자를 넣는다*/
 }
 
 /* 비주얼 */
-.visual {
-  background:orange;
+.visual{
+  background: orange;
   height: 10vh;
 }
-
 /* 메인 */
-.main {
-  background:lightgreen; 
+.main{
+  background: lightgreen;
+  min-height: 450px;
   display: flex;
-  flex-flow: row nowrap; 
+  flex-flow: row nowrap;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 30px 30px;
-  min-height: 450px;
+  padding: 30px;
+  border-top: 1px solid red;
 }
 
-.group1 {
-  background: violet; 
-  width: 250px;
+.group1{
+  background-color: violet;
+  width: 250px; 
 }
 
-.group2 {
-  background: salmon; 
+.group2{
+  background-color: salmon;
   width: 380px;
 }
-
-.group3 {
-  background: gold;  
+.group3{
+  background-color: gold;
   width: 190px;
 }
 
-/* clear속성을 동작시키기 위해, 가짜 요소를 항상 float 마지막에 삽입 */
-.clearfix {
-  clear: both
-}
-
-/*
-.main::after {  그러나.. 얘도 요소라고 생각해서 정렬에 문제가 생길 수 있어
-  content: "";
-  clear: both;
-  display: block;  clear사용하기 위해 
-} 
-*/
-
 /* 슬로건 */
-.slogan {
-  background:skyblue;
+.slogan{
+  background: skyblue;
   height: 10vh;
+  clear: both;
 }
-
-/* 푸터 - 사실상 배경(그라데이션)을 위한 태그 */
-.footer {
-  background:gray;
-  height: 15vh;
+/* 푸터 */
+.footer{
+  background: gray;
+  width: 940px;
+  margin: 0 auto;
 }
-
-/* 푸터 이너 - footer태그 속의 content들을 넣기 위한 태그 */
-.footer-inner {
-  height:15vh;
+.footer-inner{
   background: silver;
+  height: 15vh;
+  position: relative;
+  top: -10px;
+  left: -10px;
 }
-
