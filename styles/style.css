@@ -1,5 +1,6 @@
 @import url(./normalize.css);
 @import url(./reset.css);
+@import url(./fontello.css); /*이 폰트를 가져다 쓸거라고 선언*/
 
 /* 기본 스타일 */
 *, *::before, *::after{
@@ -37,15 +38,7 @@ body {
   justify-content: flex-end;  /*우측*/
 }
 
-.member li::before {
-  content: ":";  /*모든 <li>의 첫번째 가상요소에 빈문자 */
-}
-
-.member .first::before {   /* 10점(.member) + 10점(.first) + 1점(::before) */
-  content: "";    /*첫번째<li>의 가상요소에 빈문자를 넣는다*/
-}
-
-/* 비주얼 */
+/* 비주얼 */ 
 .visual{
   background: orange;
   height: 10vh;
