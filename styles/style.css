@@ -34,7 +34,7 @@ a {
 body {
   font-size: 1.4rem;
   color: #212121; /* 세련되어 보이는 검정색 */
-  background:#ccc; /* 배경색 '연노랑 -> #ccc밝은 회색'으로 바꾸기 */
+  background:#ccc linear-gradient(to bottom, #ccc 0%, #eee 35%, #efefef 60%, #fff 100%); /* 배경색 '연노랑 -> #ccc밝은 회색'으로 바꾸기 */
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; 
 }
 
@@ -84,15 +84,29 @@ body {
   text-transform: uppercase;
 }
 
-/* 마지막 <li>요소에 포함된 <a>요소를 선택하여 오른쪽 padding값을 0으로 재정의하는 법 */
-/* .member li:last-child a {
-  padding-right:0;
-} */
-
-
 .divider {
   margin-right: 4px;
 }
+
+/* 메인메뉴 */
+.navigation {
+  padding-bottom: 80px;
+}
+
+.menu {
+  background: orangered;
+  /* background-image: linear-gradient(orange, orangered, orange); */
+  background: #e85e2c
+    linear-gradient(
+      to bottom,
+      #ef9126 0%,
+      #e85e2c 35%,
+      #e85e2c 70%,
+      #ef9126 100%
+    );
+} 
+
+
 
 /* 비주얼 */
 .visual {
@@ -148,6 +162,7 @@ body {
 .footer {
   background:gray;
   height: 15vh;
+  background:#ccc linear-gradient(to bottom, #ccc 0%, #eee 35%, #efefef 60%, #fff 100%);
 }
 
 /* 푸터 이너 - footer태그 속의 content들을 넣기 위한 태그 */
