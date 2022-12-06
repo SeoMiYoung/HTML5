@@ -107,6 +107,8 @@ body {
     );
   border-radius: 0 0 5px 5px; /*아래쪽만 살짝 둥글게*/
   display: flow-root;
+  height: 47px;
+  padding-left: 230px;
   
 } 
 
@@ -115,8 +117,20 @@ body {
 }
 
 .menu-item {
-  background-color: aqua;
+  /* background-color: aqua; */
   float:left;
+  border-left: 2px solid #fff; /*순서주의*/
+}
+
+.menu-button {
+  border: 0;
+  background: transparent; /*색없앰*/
+  padding: 0 23px;
+  line-height: 45px; /*45를 한 줄의 높이로 설정*/
+  font-size: 15px;
+  font-weight: 700px;
+  color: #fff;
+  text-shadow: 1px 0px 0px #000, 0px 1px 0px #000, -1px 0px 0px #000, 0px -1px 0px #000; 
 }
 
 .sub-menu {
