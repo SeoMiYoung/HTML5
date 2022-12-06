@@ -7,6 +7,10 @@
   /* 등장하는 모든 요소들의 box-sizing방식을 통일하겠다!! */
 }
 
+html {
+  font-size: 10px;
+}
+
 /* 링크 스타일 */
 a {
   color: inherit; /*body의 #212121를 상속받음*/
@@ -15,6 +19,7 @@ a {
 
 /* 본문 스타일 */
 body {
+  font-size: 1.4rem;
   color: #212121; /* 세련되어 보이는 검정색 */
   background:#ccc; /* 배경색 '연노랑 -> #ccc밝은 회색'으로 바꾸기 */
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; 
