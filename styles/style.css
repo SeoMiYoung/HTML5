@@ -1,23 +1,22 @@
-@import url(./normalize.css); /*반드시 첫줄, 또한 RESET보다 먼저 */
-@import url(./reset.css); 
+@import url(./fontello.css);
+@import url(./normalize.css);
+@import url(./reset.css);
 
 /* 숨김 콘텐츠 */
-.a11y-hidden {
-  /* display:none; */
-  /* visibility: hidden; */
+.a11y-hidden,
+legend {
   position: absolute;
   width: 1px;
-  height: 1px; 
-  margin: -1px; /*negative margin*/
-  overflow: hidden; /*빨간점 하나 감춰야지*/
-  clip-path:polygon(0 0, 0 0, 0 0);
-  /* clip: rect(0 0 0 0); */
-} 
+  height: 1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
 
 /* 기본 스타일 */
-*, *::before, *::after {
-  box-sizing: border-box; /*모든 요소를 border-box로 할건지 통일하는게 좋음*/
-  /* 등장하는 모든 요소들의 box-sizing방식을 통일하겠다!! */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
@@ -26,77 +25,86 @@ html {
 
 /* 링크 스타일 */
 a {
-  color: inherit; /*body의 #212121를 상속받음*/
+  color: inherit;
   text-decoration: none;
 }
 
 /* 본문 스타일 */
 body {
+  color: #212121;
   font-size: 1.4rem;
-  color: #212121; /* 세련되어 보이는 검정색 */
-  background:#ccc linear-gradient(to bottom, #ccc 0%, #eee 35%, #efefef 60%, #fff 100%); /* 배경색 '연노랑 -> #ccc밝은 회색'으로 바꾸기 */
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; 
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  background: url("./images/bg_flower.png") no-repeat 50% 0,
+    #ccc linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%)
+      repeat 0 0;
 }
 
 /* 레이아웃 */
-.header, .visual, .main, .slogan, .footer-inner {
+.header,
+.visual,
+.main,
+.slogan,
+.footer-inner {
   width: 940px;
   margin: 0 auto;
-  
 }
 
 /* 헤더 */
 .header {
-  background: #fff; /* 배경을 흰색으로 변경 */
-  padding: 0 30px;   /* header에서만 padding을 사용할거야 */
-  border-radius: 0 0 15px 15px; 
-  position: relative; /*마치 공식인 것 처럼 인식하지는 마..앱솔루트로 쓰면 붕 뜨니깐..안쓰는겨*/
-  
+  background: #fff;
+  padding: 0 30px;
+  border-radius: 0 0 15px 15px;
+  position: relative;
 }
 
 /* 로고 */
 .logo {
-  /* background-color: blue; */
-  position:absolute; /*부모는 header -> 부모에게 static이 아닌, position을 줘야함*/
+  position: absolute;
   top: 45px;
   left: 60px;
+  z-index: 10;
 }
 
 /* 텍스트 링크 모음 */
 .member {
   text-align: right;
   padding: 4px 0;
-  /* 주석은 코드 위쪽에 다는것이 원칙 */
-  /* position:relative;
+  /* position 속성을 활용하여 .member 영역을 오른쪽으로 10px 만큼 이동하기 */
+  /* position: relative;
   right: -10px; */
-  /* transform 속성을 사용하여, --> 레거시 상관없다!  */
+  /* transform 속성을 활용하여 .member 영역을 오른쪽으로 10px 만큼 이동하기 */
   transform: translateX(10px);
 }
 
-.member li {   /* .member속 li에게 적용 */
-  display:inline-block; /*너는 원래 block이지만 inline으로 바꿀거야!*/
+.member li {
+  display: inline-block;
 }
 
-.member a {  /* .member li a 랑 같지만, 음.. 굳이 너무 유지보수 힘듬 */
-
+.member a {
   padding: 6px 10px;
-  display:inherit; /*li의 inline-block속성을 물려받음. padding때매*/
+  display: inherit;
   text-transform: uppercase;
 }
+
+/* 마지막 li 요소에 포함된 a 요소를 선택하여 오른쪽 padding 값을 0으로 재정의 하는 방법 */
+/* .member li:last-child a {
+  padding-right: 0;
+} */
 
 .divider {
   margin-right: 4px;
 }
 
-/* 메인메뉴 */
+/* 메인 메뉴 */
 .navigation {
-  padding-bottom: 80px;
+  padding-bottom: 40px;
 }
 
 .menu {
-  border-top: 2px solid #212121;
-  background: orangered;
-  /* background-image: linear-gradient(orange, orangered, orange); */
+  border-top: 2px solid currentColor;
   background: #e85e2c
     linear-gradient(
       to bottom,
@@ -105,52 +113,169 @@ body {
       #e85e2c 70%,
       #ef9126 100%
     );
-  border-radius: 0 0 5px 5px; /*아래쪽만 살짝 둥글게*/
-  display: flow-root;
-  height: 47px;
+  border-radius: 0 0 5px 5px;
   padding-left: 230px;
-  
-} 
+  height: 47px;
+  position: relative;
+}
 
-.menu-item::first-child {
-  margin-left: 230px;
+.menu > li:nth-child(-n + 3) {
+  position: relative;
 }
 
 .menu-item {
-  /* background-color: aqua; */
-  float:left;
-  border-left: 2px solid #fff; /*순서주의*/
+  float: left;
+  border-left: 2px solid #fff;
 }
 
+/* 구체성 -> 10점 */
 .menu-button {
   border: 0;
-  background: transparent; /*색없앰*/
+  background: transparent;
   padding: 0 23px;
-  line-height: 45px; /*45를 한 줄의 높이로 설정*/
+  line-height: 45px;
   font-size: 15px;
-  font-weight: 700px;
+  font-weight: 700;
   color: #fff;
-  text-shadow: 1px 0px 0px #000, 0px 1px 0px #000, -1px 0px 0px #000, 0px -1px 0px #000; 
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
+}
+
+/* 구체성 -> 20점 */
+.is-active .menu-button {
+  color: #ff0;
+}
+
+.is-active .menu-button::after {
+  content: "";
+  display: block;
+  border-top: 2px solid #000;
 }
 
 .sub-menu {
-  background-color: pink;
-  position:absolute;
+  position: absolute;
+  top: 47px;
   display: none;
+  padding: 4px 0;
+}
+
+.menu-html,
+.menu-css,
+.menu-standards {
+  left: 0;
+}
+
+.menu-accessibility,
+.menu-qna,
+.menu-archive {
+  right: 0;
+}
+
+.is-active .sub-menu {
+  display: block;
+  white-space: nowrap;
+}
+
+.sub-menu li {
+  display: inline-block;
+}
+
+.sub-menu a::before {
+  content: "\e805";
+  font-family: "fontello";
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: 0.2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sub-menu a:hover::before,
+.sub-menu a:focus::before {
+  content: "\e801";
+}
+
+.sub-menu a {
+  display: inline-block;
+  padding: 6px 0;
+}
+
+.sub-menu a:hover,
+.sub-menu a:focus {
+  color: #f00;
 }
 
 /* 비주얼 */
+@keyframes moveEffect {
+  0% {
+    font-size: 12px;
+    color: hsla(0, 0%, 0%, 0);
+    transform: translate(0, 0);
+  }
+
+  100% {
+    font-size: 24px;
+    color: hsla(0, 0%, 0%, 1);
+    transform: translate(400px, 75px);
+  }
+}
+
+@keyframes fadeEffect {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .visual {
-  background:orange;
-  height: 10vh;
+  height: 120px;
+  position: relative;
+}
+
+.visual::before,
+.visual::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  animation: fadeEffect 2000ms infinite alternate;
+}
+
+.visual::before {
+  background: url("./images/ani_flower_01.png") no-repeat 0 -10px,
+    url("./images/ani_flower_02.png") no-repeat 600px 0;
+}
+
+.visual::after {
+  background: url("./images/ani_flower_03.png") no-repeat 300px 0,
+    url("./images/ani_flower_04.png") no-repeat 800px 0;
+  animation-delay: 1000ms;
+}
+
+.visual-text {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  animation: moveEffect 400ms ease-in-out forwards;
+  position: relative;
+  z-index: 1;
 }
 
 /* 메인 */
 .main {
-  background:lightgreen;
-  height: 50vh; 
   display: flow-root;
-  padding: 0 15px;
+  background: #fff;
+  min-height: 450px;
+  padding: 30px 15px;
+  border-radius: 15px 15px 0 0;
 }
 
 .group {
@@ -159,46 +284,96 @@ body {
 }
 
 .group1 {
-  background: violet; /*마찬가지로 영역 구분을 위해 임의로 색 지정*/
   width: 250px;
-  /* position: relative; 
-    - relative의 경우, 현재 자신의 위치를 기준으로 움직임 
-    left: -100px;
-  */
-
 }
 
 .group2 {
-  background: salmon;  /*마찬가지로 영역 구분을 위해 임의로 색 지정*/
+  background-color: salmon;
   width: 380px;
 }
 
 .group3 {
-  background: gold;  /*마찬가지로 영역 구분을 위해 임의로 색 지정*/
+  background-color: gold;
   width: 190px;
 }
 
-/* clear속성을 동작시키기 위해, 가짜 요소를 항상 float 마지막에 삽입 */
-.clearfix {
-  clear: both;
+/* 로그인 */
+.login {
+  box-shadow: 5px 5px 0 0 #ccc;
+  background: orange radial-gradient(circle at right top, orange, orangered);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.login-title {
+  color: #ff0;
+  font-size: 15px;
+  font-weight: 700;
+  text-indent: 10px;
+}
+
+.login-form {
+  background-color: #fff;
+  margin-top: 10px;
+  border-radius: 5px 5px 0 0;
+  padding: 10px 10px 0 10px;
+}
+
+.login-form fieldset {
+  position: relative;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 5px;
+}
+
+.user-email,
+.user-pw {
+  margin-bottom: 5px;
+}
+
+.login-form label {
+  display: inline-block;
+  width: 4em;
+}
+
+.login-form input {
+  width: 90px;
+  height: 24px;
+  border: 1px solid #aaa;
+  padding: 1px 1px 1px 5px;
+  border-radius: 3px;
+}
+
+.login-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 53px;
+  background-color: orangered;
+  color: #fff;
+  border: 0;
+  padding: 0 8px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.sign {
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+  padding: 0 10px 10px 10px;
 }
 
 /* 슬로건 */
 .slogan {
-  background:skyblue;
+  background: skyblue;
   height: 10vh;
+  clear: both;
 }
-
-/* 푸터 - 사실상 배경(그라데이션)을 위한 태그 */
+/* 푸터 */
 .footer {
-  background:gray;
-  height: 15vh;
-  background:#ccc linear-gradient(to bottom, #ccc 0%, #eee 35%, #efefef 60%, #fff 100%);
+  background: #ccc
+    linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%);
 }
-
-/* 푸터 이너 - footer태그 속의 content들을 넣기 위한 태그 */
 .footer-inner {
-  height:15vh;
   background: silver;
+  height: 15vh;
 }
-
